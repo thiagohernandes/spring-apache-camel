@@ -1,5 +1,11 @@
 package com.br.camel.domain;
 
+/*
+ * Objeto Pessoa
+ * @author Thiago Hernandes de Souza
+ * @since 23-05-2019
+ */
+
 public class Pessoa {
 
     private int id;
