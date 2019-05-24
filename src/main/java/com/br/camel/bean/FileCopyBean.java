@@ -1,4 +1,4 @@
-package com.br.camel.files;
+package com.br.camel.bean;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
@@ -15,7 +15,7 @@ import com.br.camel.util.UtilCamelContext;
  */
 
 @Configuration
-public class FileCopy extends RouteBuilder {
+public class FileCopyBean extends RouteBuilder {
 	
 	@Autowired
 	UtilCamelContext util;
