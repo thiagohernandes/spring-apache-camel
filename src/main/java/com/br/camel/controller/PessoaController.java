@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/*
+ * Controller auxiliar de Pessoas
+ * @author Thiago Hernandes de Souza
+ * @since 23-05-2019
+ */
+
 @RestController
 @RequestMapping("/api/pessoas")
 public class PessoaController {

@@ -6,6 +6,12 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+ * Service de Pessoa
+ * @author Thiago Hernandes de Souza
+ * @since 23-05-2019
+ */
+
 @Service
 public class PessoaService {
 
