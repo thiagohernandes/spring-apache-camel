@@ -10,6 +10,7 @@ Projetos, códigos e how tos envolvendo Spring Boot e Apache Camel
 call 1:
 http://localhost:8082/hello
 - observar o fluxo que é emitido no console de execução que é oriundo de: http://localhost:8088/api/pessoas/all
+
 call 2:
 http://localhost:8080/hello
 
