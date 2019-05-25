@@ -20,7 +20,7 @@ import static org.apache.camel.component.jms.JmsComponent.jmsComponentAutoAcknow
  */
 
 @Configuration
-public class JmsConfiguration {
+public class JmsMqMain {
 
     public static final String DEFAULT_PROFILE = "profileDefaultJms";
     public static final String ACTIVEMQ = "activemq";

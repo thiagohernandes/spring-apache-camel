@@ -1,5 +1,6 @@
 package com.br.camel.route;
 
+import com.br.camel.constants.UtilConstants;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.ProducerTemplate;
@@ -20,7 +21,8 @@ import java.util.UUID;
 @Component
 public class RouteJms extends RouteBuilder {
 
-    public static final String filaMq = "activemq://everis-queue";
+    @Autowired
+    private UtilConstants util;
 
     @Autowired
     private ProducerTemplate producerTemplate;
@@ -28,24 +30,27 @@ public class RouteJms extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        from("timer://everis?period=5000")
+        from(util.timerFila)
                 .process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {
                         String mensagem = UUID.randomUUID().toString();
                         log.info("**********************************");
                         log.info("Enviando.... '{}'", mensagem);
-                        producerTemplate.sendBody(filaMq, mensagem);
+                        producerTemplate.sendBody(util.filaMq, mensagem);
                     }
                 });
 
-        from(filaMq)
+        from(util.filaMq)
                 .process(new Processor() {
                     @Override
                     public void process(Exchange exchange) throws Exception {
                         String mensagem = exchange.getIn().getBody(String.class);
                         log.info("--------------------------------");
                         log.info("Mensagem recebida --> '{}' ", mensagem);
+                        if (mensagem.contains("Mensagem")) {
+                            log.info("------ Property from route (util.routeHttpJetty8080) --> '{}'", exchange.getIn().getBody().toString());
+                        }
                     }
                 });
     }

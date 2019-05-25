@@ -1,5 +1,7 @@
 package com.br.camel.route;
 
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +23,8 @@ class RouteJettyHttp4GetAllPessoasRedirect extends RouteBuilder{
 	private UtilConstants util;
 	
 	public void configure() throws Exception {
-	    from("jetty:http://localhost:8082/hello")
-	      .routeId(util.route3)
-	      .to(util.directJettyPessoas);
+	    from(util.routeHttpJetty8082)
+	      	.routeId(util.route3)
+	      	.to(util.directJettyPessoas);
 	}
 }

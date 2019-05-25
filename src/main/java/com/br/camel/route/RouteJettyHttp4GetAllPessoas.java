@@ -24,7 +24,7 @@ public class RouteJettyHttp4GetAllPessoas extends RouteBuilder{
 		from(util.directJettyPessoas)
 		  .routeId(util.route2)
 		  .setHeader(Exchange.HTTP_METHOD, constant(org.apache.camel.component.http4.HttpMethods.GET))
-		  .to("http4://localhost:8088/api/pessoas/all?bridgeEndpoint=true")
+		  .to(util.bridgePessoas)
 		  .log("${body}");
 		
 	}
