@@ -13,6 +13,12 @@ import javax.jms.ConnectionFactory;
 
 import static org.apache.camel.component.jms.JmsComponent.jmsComponentAutoAcknowledge;
 
+/*
+ * Configuração principal do ActiveMQ
+ * @author Thiago Hernandes de Souza
+ * @since 24-05-2019
+ */
+
 @Configuration
 public class JmsConfiguration {
 

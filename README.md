@@ -19,6 +19,12 @@ http://localhost:8080/hello
 - em seguida criar novamente outro ou como quiser;
 - são usados os diretórios local C:/Dev/temp-files/folder-a e C:/Dev/temp-files/folder-b (os arquivos movidos de folder-a não são excluídos)
 
+## Filas (ActiveMQ)
+- Route de envio e recebimento de mensagens;
+- baixar o ActiveMQ (https://activemq.apache.org/components/classic/download/);
+- descompactar e executar na pasta bin o arquivo "activemq";
+- http://localhost:8161/ -> default user = "admin" e senha "admin"
+
 
 
 
