@@ -1,5 +1,7 @@
 # spring-apache-camel
 Projetos, códigos e how tos envolvendo Spring Boot e Apache Camel
+--> SEMPRE OBSERVAR OS LOGS DO CONSOLE para verificar os comportamento de "exchange" e o que foi definido
+nas rotas (from)
 
 ## Instruções Iniciais
 - $ git clone https://github.com/thiagohernandes/spring-apache-camel.git
@@ -13,6 +15,9 @@ http://localhost:8082/hello
 
 call 2:
 http://localhost:8080/hello
+
+call 3:
+http://localhost:8083/hello - rotas alternativas para fila ou localhost:8082
 
 ## Copy files
 - ao mover o arquivo da pasta "folder-in" ele é EXCLUÍDO; 
