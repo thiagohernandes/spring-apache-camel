@@ -1,5 +1,6 @@
 package com.br.camel.bean;
 
+import com.br.camel.constants.UtilConstants;
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -12,22 +13,24 @@ import com.br.camel.util.UtilCamelContext;
 public class JmsActiveMqBean extends RouteBuilder {
 	
 	@Autowired
-	UtilCamelContext util;
+	UtilCamelContext utilCamelContext;
+
+	@Autowired
+	UtilConstants utilConstants;
 	
 	@Override
     public void configure() throws Exception {
 		CamelContext context = new DefaultCamelContext();
 	    context.addRoutes(new RouteBuilder() {
 	        public void configure() {
-	        	from("activemq:foo")
-	            .to("log:sample");
+	        	from(utilConstants.timerStart)
+	            .to(utilConstants.activeMqStart);
 
-	        	from("timer:bar")
-	            .setBody(constant("Hello from Camel"))
-	            .to("activemq:foo");
+				from(utilConstants.activeMqStart)
+				.to("log:sample");
 	        }
 	    });
-	    util.startStop(context, 2000);
+		utilCamelContext.startStop(context, 2000);
         
     }
 

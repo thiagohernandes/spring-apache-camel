@@ -33,5 +33,14 @@ public class RouteJetty extends RouteBuilder{
 				}
 			})
 		.toD(util.filaMq);
+
+		from(util.routeHttpJetty8083)
+				.routeId(util.route4)
+				.transform().simple("Mensagem by Camel!!!")// cairá na condição 1
+				.choice()
+					.when(body().contains("Camel")).to(util.filaMq)// condição 1
+					.when(body().contains("Java")).to(util.routeHttpJetty8082 + "?bridgeEndpoint=true") // condição 2
+				.otherwise()
+				.end();
 	}
 }
