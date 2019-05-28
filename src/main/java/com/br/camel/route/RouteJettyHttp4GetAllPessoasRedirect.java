@@ -1,11 +1,10 @@
 package com.br.camel.route;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
+import org.springframework.http.MediaType;
 
 import com.br.camel.constants.UtilConstants;
 
@@ -23,8 +22,18 @@ class RouteJettyHttp4GetAllPessoasRedirect extends RouteBuilder{
 	private UtilConstants util;
 	
 	public void configure() throws Exception {
+		
+//		restConfiguration()
+//        .component("servlet")
+//        .bindingMode(RestBindingMode.auto);
+//
+//		rest("/api")
+//		.produces(MediaType.APPLICATION_XML.toString())
+//			.get("/xml").to(util.directJettyPessoasXML);
+
 	    from(util.routeHttpJetty8082)
 	      	.routeId(util.route3)
 	      	.to(util.directJettyPessoas);
+	    
 	}
 }

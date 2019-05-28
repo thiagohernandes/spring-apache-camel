@@ -1,5 +1,7 @@
 package com.br.camel.util;
 
+import java.util.List;
+
 import org.apache.camel.CamelContext;
 import org.springframework.stereotype.Component;
 
