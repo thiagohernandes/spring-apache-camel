@@ -21,14 +21,14 @@ public class AppMainCamel {
 		SpringApplication.run(AppMainCamel.class, args);
 	}
 	
-	@SuppressWarnings("rawtypes")
-	@Bean
-	ServletRegistrationBean servletRegistrationBean() {
-		@SuppressWarnings("unchecked")
-		final ServletRegistrationBean servlet = new ServletRegistrationBean(
-				new CamelHttpTransportServlet(), "/*");
-		servlet.setName("CamelServlet");
-		return servlet;
-	}
+//	@SuppressWarnings("rawtypes")
+//	@Bean
+//	ServletRegistrationBean servletRegistrationBean() {
+//		@SuppressWarnings("unchecked")
+//		final ServletRegistrationBean servlet = new ServletRegistrationBean(
+//				new CamelHttpTransportServlet(), "/*");
+//		servlet.setName("CamelServlet");
+//		return servlet;
+//	}
 
 }
